@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONLY#PHONK | Official Links</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  background:radial-gradient(circle at top,#121212 0%,#000 70%);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+#particles{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+
+.wrapper{
+  position:relative;
+  z-index:2;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:32px 16px;
+}
+
+.container{
+  width:100%;
+  max-width:520px;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(22px);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.85);
+}
+
+/* LOGO */
+.logo{
+  display:flex;
+  justify-content:center;
+  margin-bottom:14px;
+}
+
+.logo img{
+  width:95px;
+  height:95px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2.5px solid #fff;
+  padding:3px;
+  background:#000;
+  filter:drop-shadow(0 0 12px rgba(255,255,255,.3));
+  animation:logoFloat 6s ease-in-out infinite;
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.logo img:hover{
+  transform:scale(1.12) rotate(2deg);
+  box-shadow:
+    0 0 25px rgba(255,255,255,.55),
+    0 0 60px rgba(255,255,255,.25);
+}
+
+/* subtle idle float */
+@keyframes logoFloat{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+  100%{transform:translateY(0)}
+}
+
+/* TEXT */
+.title{
+  text-align:center;
+  font-size:28px;
+  font-weight:800;
+}
+.subtitle{
+  text-align:center;
+  font-size:13px;
+  opacity:.75;
+  margin-top:4px;
+}
+.philosophy{
+  margin:18px 0;
+  text-align:center;
+  font-size:13px;
+  line-height:1.6;
+  opacity:.85;
+}
+.philosophy strong{font-weight:700}
+
+/* SECTION TITLE */
+.section-title{
+  margin:26px 0 12px;
+  font-size:14px;
+  letter-spacing:1px;
+  opacity:.85;
+}
+
+/* LINKS */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.link{
+  text-decoration:none;
+  color:#fff;
+  padding:16px 18px;
+  border-radius:18px;
+  background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  transition:.35s;
+}
+.link i{
+  font-size:20px;
+  min-width:22px;
+}
+.link span{
+  font-weight:600;
+  font-size:15px;
+}
+.link::after{
+  content:"→";
+  margin-left:auto;
+  opacity:.6;
+}
+.link:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 16px 40px rgba(0,0,0,.7);
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:24px;
+  font-size:12px;
+  opacity:.5;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="wrapper">
+<div class="container">
+<div class="card">
+
+  <div class="logo">
+    <img src="MUSIC.png" alt="Эфир Logo">
+  </div>
+
+  <div class="title">Эфир</div>
+  <div class="subtitle"><strong>A music label / distributor</strong></div>
+
+  <div class="philosophy">
+    this is<br>
+    Linktree by Эфир<br>
+    If you need linktree like this write here (telegram): @azer493
+  </div>
+
+  <div class="section-title">🌍 OUR SOCIAL NETWORKS</div>
+  <div class="links">
+    <a class="link" href="https://efir.zite.so" ></i><span>OFFICIAL SITE</span></a>
+    <a class="link" href="https://www.youtube.com/@OnlyPhonk_Op" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+    <a class="link" href="https://efirstream.github.io/1/upload.html" target="_blank"><i class="fab fa-x-twitter"></i><span>Upload (revesrve link)</span></a>
+  </div>
+
+  <div class="section-title">🎧 ЭФИР PLAYLISTS</div>
+  <div class="links">
+    <a class="link" href="https://efirstream.github.io/1/" target="_blank"><i class="fab fa-spotify"></i><span>Spotify Playlist</span></a>
+    <a class="link" href="https://efirstream.github.io/1/" target="_blank"><i class="fab fa-soundcloud"></i><span>SoundCloud Playlist</span></a>
+    <a class="link" href="https://efirstream.github.io/1/" target="_blank"><i class="fab fa-youtube"></i><span>YouTube Music Playlist</span></a>
+  </div>
+
+  <div class="footer">© 2026 Эфир</div>
+
+</div>
+</div>
+</div>
+
+<script>
+const canvas=document.getElementById("particles"),
+ctx=canvas.getContext("2d");
+let w,h,particles=[],pointer={x:null,y:null,radius:140},time=0;
+
+function resize(){
+  w=canvas.width=window.innerWidth;
+  h=canvas.height=window.innerHeight;
+}
+window.addEventListener("resize",resize);
+resize();
+
+window.addEventListener("mousemove",e=>{
+  pointer.x=e.x;pointer.y=e.y;
+});
+window.addEventListener("touchmove",e=>{
+  pointer.x=e.touches[0].clientX;
+  pointer.y=e.touches[0].clientY;
+});
+window.addEventListener("mouseout",()=>{
+  pointer.x=null;pointer.y=null;
+});
+
+class Particle{
+  constructor(){
+    this.baseX=Math.random()*w;
+    this.baseY=Math.random()*h;
+    this.x=this.baseX;
+    this.y=this.baseY;
+    this.size=Math.random()*1.6+.6;
+    this.speed=Math.random()*0.6+0.3;
+    this.offset=Math.random()*1000;
+  }
+  update(){
+    this.x=this.baseX+Math.sin(time*0.002+this.offset)*12;
+    this.y=this.baseY+Math.cos(time*0.002+this.offset)*12;
+
+    if(pointer.x){
+      let dx=pointer.x-this.x,
+          dy=pointer.y-this.y,
+          dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<pointer.radius){
+        this.x-=dx*0.02;
+        this.y-=dy*0.02;
+      }
+    }
+  }
+  draw(){
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fillStyle="rgba(255,255,255,.45)";
+    ctx.fill();
+  }
+}
+
+for(let i=0;i<120;i++)particles.push(new Particle());
+
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  time++;
+  particles.forEach(p=>{p.update();p.draw();});
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
